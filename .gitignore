@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Local secrets. Only the documented template belongs in source control.
+.env
+.env.*
+!.env.example
+
+# Runtime SQLite databases and WAL/SHM files
+data/*.sqlite
+data/*.sqlite-*
+data/*.sqlite*
+
+# User-generated exports, uploads and backups
+data/exports/*
+!data/exports/.gitkeep
+uploads/*
+!uploads/.gitkeep
+backups/*
+!backups/.gitkeep
+
+# Logs / local OS residue
+*.log
+.DS_Store
+Thumbs.db

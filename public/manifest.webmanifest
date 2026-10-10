@@ -1,0 +1,13 @@
+{
+  "name": "FoodSnap",
+  "short_name": "FoodSnap",
+  "description": "Food intelligence, discovery and personal food memory.",
+  "start_url": "/app",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#0b1112",
+  "theme_color": "#123D3D",
+  "icons": [
+    {"src":"/favicon.svg","sizes":"any","type":"image/svg+xml","purpose":"any maskable"}
+  ]
+}

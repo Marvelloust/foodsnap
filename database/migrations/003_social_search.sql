@@ -1,0 +1,3 @@
+CREATE TABLE IF NOT EXISTS comment_mentions(comment_type TEXT NOT NULL,comment_id INTEGER NOT NULL,mentioned_user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,created_at TEXT NOT NULL,PRIMARY KEY(comment_type,comment_id,mentioned_user_id));
+CREATE TABLE IF NOT EXISTS message_attachments(id INTEGER PRIMARY KEY AUTOINCREMENT,message_id INTEGER NOT NULL REFERENCES messages(id) ON DELETE CASCADE,attachment_type TEXT NOT NULL,file_url TEXT NOT NULL DEFAULT '',mime_type TEXT NOT NULL DEFAULT '',bytes INTEGER NOT NULL DEFAULT 0,created_at TEXT NOT NULL);
+CREATE INDEX IF NOT EXISTS idx_message_attachments_message ON message_attachments(message_id);

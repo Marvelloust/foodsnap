@@ -1,0 +1,37 @@
+{
+  "name": "foodsnap-polished",
+  "version": "1.0.0",
+  "private": true,
+  "description": "FoodSnap \u2014 unified AI food intelligence, discovery, recipes and personal food memory platform",
+  "type": "commonjs",
+  "engines": {
+    "node": ">=20.19.0"
+  },
+  "scripts": {
+    "start": "node --no-warnings run.js",
+    "test": "node --test tests/*.test.js",
+    "reset": "node scripts-reset.js",
+    "migrate": "node --no-warnings -e \"require('./lib/db'); console.log('Migrations applied.')\"",
+    "seed:small": "node --no-warnings scripts/data-lab.js small",
+    "seed:realistic": "node --no-warnings scripts/data-lab.js realistic",
+    "seed:large": "node --no-warnings scripts/data-lab.js large",
+    "seed:stress": "node --no-warnings scripts/data-lab.js stress",
+    "benchmark": "node --no-warnings scripts/benchmark.js",
+    "db:integrity": "node --no-warnings scripts/integrity.js",
+    "db:backup": "node --no-warnings scripts/backup.js",
+    "search:rebuild": "node --no-warnings scripts/rebuild-search.js",
+    "jobs:once": "node --no-warnings scripts/worker-once.js",
+    "db:restore": "node --no-warnings scripts/restore.js",
+    "smoke": "node --no-warnings scripts/smoke.js",
+    "worker": "node --no-warnings scripts/worker-daemon.js",
+    "release:check": "node --no-warnings scripts/release-check.js",
+    "browser:smoke": "node --no-warnings scripts/browser-smoke.js",
+    "start:lab": "node --no-warnings scripts/start-lab.js",
+    "lab:small": "npm run seed:small && npm run start:lab",
+    "lab:realistic": "npm run seed:realistic && npm run start:lab",
+    "lab:large": "npm run seed:large && npm run start:lab"
+  },
+  "optionalDependencies": {
+    "better-sqlite3": "^11.10.0"
+  }
+}

@@ -1,0 +1,4 @@
+CREATE TABLE IF NOT EXISTS households(id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT NOT NULL,owner_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,invite_code TEXT NOT NULL UNIQUE,created_at TEXT NOT NULL,updated_at TEXT NOT NULL);
+CREATE TABLE IF NOT EXISTS household_members(household_id INTEGER NOT NULL REFERENCES households(id) ON DELETE CASCADE,user_id INTEGER NOT NULL REFERENCES users(id) ON DELETE CASCADE,role TEXT NOT NULL DEFAULT 'member',joined_at TEXT NOT NULL,PRIMARY KEY(household_id,user_id));
+CREATE INDEX IF NOT EXISTS idx_household_members_user ON household_members(user_id,household_id);
+CREATE TABLE IF NOT EXISTS household_invites(id INTEGER PRIMARY KEY AUTOINCREMENT,household_id INTEGER NOT NULL REFERENCES households(id) ON DELETE CASCADE,email TEXT NOT NULL,token_hash TEXT NOT NULL UNIQUE,role TEXT NOT NULL DEFAULT 'member',expires_at TEXT NOT NULL,accepted_at TEXT,created_at TEXT NOT NULL);
